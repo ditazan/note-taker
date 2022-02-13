@@ -1,9 +1,3 @@
-const { response } = require("express");
-const express = require("express");
-const fs = require("fs");
-const { createContext } = require("vm");
-const { notes } = require("../../../db/db.json");
-
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -30,52 +24,6 @@ const hide = (elem) => {
 
 // activeNote is used to keep track of the note in the textarea
 let activeNote = {};
-
-function validateNote(note) {
-  if (!note.title || typeof note.title !== "string") {
-    return false;
-  }
-  if (!note.text || typeof note.text !== "string") {
-    return false;
-  }
-  return true;
-}
-
-function findById(id, notesArray) {
-  const result = notesArray.filter((note) => note.id === id)[0];
-  return result;
-}
-
-function createNewNote(body, notesArray) {
-  const note = body;
-  notesArray.push(note);
-  fs.writeFileSync(
-    path.join(__dirname, "../../../db/db.json"),
-    JSON.stringify({ notes: notesArray }, null, 2)
-  );
-  return note;
-}
-
-app.get("/api/notes/:id", (req, res) => {
-  const result = findById(req.params.id, notes);
-  if (result) {
-    res.json(result);
-  } else {
-    res.send(404);
-  }
-});
-
-app.post("/api/notes", (req, res) => {
-  // set id based on what the next index of the array will be
-  req.body.id = notes.length.toString();
-
-  if (!validateNote(req.body)) {
-    res.status(400).send("note is not properly formatted.");
-  } else {
-    const note = saveNote(req.body, notes);
-    res.json(note);
-  }
-});
 
 const getNotes = () =>
   fetch("/api/notes", {
@@ -112,8 +60,6 @@ const saveNote = (note) =>
     .then((postResponse) => {
       console.log(postResponse);
       alert("Note Saved !");
-      
-      createNewNote(note, notes);
     });
 
 const deleteNote = (id) =>

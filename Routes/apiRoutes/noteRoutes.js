@@ -1,2 +1,2 @@
 const router = require('express').Router();
-const { getNotes, saveNotes, }
+const { getNotes, noteById, createNewNote, validateNote } =  require("../../lib/notes");
