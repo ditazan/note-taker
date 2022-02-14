@@ -10,11 +10,13 @@ const htmlRoutes = require('./Routes/htmlRoutes');
 // instantiating the server
 const app = express();
 
+app.use(express.static('public'));
+
 // parse incoming string or array data
 app.use(express.urlencoded({ extended: true }));
 // parse incoming JSON data
 app.use(express.json());
-app.use(express.static('public'));
+
 
 
 // Use apiRoutes

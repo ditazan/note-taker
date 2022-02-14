@@ -5,6 +5,7 @@ const {
   noteById,
   createNewNote,
   validateNote,
+  deleteNote
 } = require("../../lib/notes");
 
 const notesArray = require("../../db/db.json");
@@ -31,5 +32,15 @@ router.post("/notes", (req, res) => {
     res.json(note);
   }
 });
+
+//removes note by id
+router.delete('/notes/:id', (req, res) => {
+  let results = deleteNote(req.params.id);
+  if (results) {
+  res.json(results);
+  } else {
+    res.status(400).send('Something went wrong.');
+  }
+});  
 
 module.exports = router;
