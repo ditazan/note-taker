@@ -21,12 +21,13 @@ app.use(express.static('public'));
 app.use('/api', apiRoutes);
 app.use('/', htmlRoutes);
 
+// error response just in case address not found
+app.use((req, res) => {
+  res.status(404).end();
+});
+
 app.listen(PORT, () => {
     console.log(`api server is now on port ${PORT}!`);
   });
 
 
-// error response just in case address not found
-  app.use((req, res) => {
-    res.status(404).end();
-});
