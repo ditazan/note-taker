@@ -19,8 +19,8 @@ Note Taker is an application that can be used to write and save notes. This appl
 > * Node.js
 > * NPM
 > * Express
-> * Express Router
 > * UUID
+> * Heroku
 
 ## Installation
 > 1. Clone the repository located at: https://github.com/ditazan/note-taker
