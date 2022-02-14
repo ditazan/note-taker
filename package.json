@@ -1,0 +1,25 @@
+{
+  "name": "note-taker",
+  "version": "1.0.0",
+  "description": "application called Note Taker that can be used to write and save notes.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ditazan/note-taker.git"
+  },
+  "author": "dita",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ditazan/note-taker/issues"
+  },
+  "homepage": "https://github.com/ditazan/note-taker#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "uuid": "^8.3.2"
+    
+  }
+}
