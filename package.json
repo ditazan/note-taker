@@ -4,7 +4,7 @@
   "description": "application called Note Taker that can be used to write and save notes.",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start" : "node server.js"
   },
   "repository": {
@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/ditazan/note-taker#readme",
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "uuid": "^8.3.2"
+    
   }
 }

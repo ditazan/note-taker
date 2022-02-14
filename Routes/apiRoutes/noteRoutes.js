@@ -7,7 +7,7 @@ const {
   validateNote,
 } = require("../../lib/notes");
 
-const notesArray = require("../db/db.json");
+const notesArray = require("../../db/db.json");
 
 router.get("/notes", (req, res) => {
   let results = getNotes();
